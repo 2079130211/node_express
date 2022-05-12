@@ -1,24 +1,14 @@
-const  express =  require("express");
-
- 
-
-const app =  express();
-app.listen(8080);
-
-
+// modeal import here
 require('./model/index.js');
-
-app.get("/",(request,response)=>{
-    // response.status(200);
-
-    // const msg = {
-    //     msg:"success"
-    // };
-    // response.json(msg);
+// controller
+require('./routes/index.js');
 
 
-    response.send('home page');
-});
+
+
+
+
+
 
 
  

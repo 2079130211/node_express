@@ -5,8 +5,6 @@ module.exports = (con,DataTypes)=>{
             type:DataTypes.STRING,
             defaultValue:'test@gmail.com'
         }
-
     }
-
     );
 };
