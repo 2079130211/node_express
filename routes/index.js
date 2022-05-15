@@ -1,8 +1,8 @@
 
 const  express =  require("express");
 const app =  express();
-var user = require("./../controller/user.js");
-app.get("/",user.show);
+require("./user_route.js")(app);
+require("./customer_route.js")(app);
 app.listen(8080);
 
 

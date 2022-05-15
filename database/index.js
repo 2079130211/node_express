@@ -13,27 +13,19 @@ const con = new Sequelize('tmvtspuc_update', 'root', '12', {
     }
 });
 
-con.authenticate().then(() => {
-    database();
-}).catch((error) => {
+con.authenticate().catch((error) => {
     console.log(error + ' data base error');
 });
-
-
-
-const database = () => {
+ 
     const db = {};
     db.Sequelize = Sequelize;
     db.con = con;
 
-    
-    db.users = require('./users')(con, DataTypes);
+    //modeal import here
+    db.users = require('../model/users_model')(con, DataTypes);
 
-
-
+ 
     // db.con.sync().then(()=>{
     //     console.log('d');
     // });
-}
-
-
+ 

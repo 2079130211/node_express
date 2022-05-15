@@ -1,16 +1,15 @@
-var db = require('./../database/index.js');
 
-const users = db.users;
 
-var insert =    async (request,response)=>{
-
-    // let insert =  await users.create({name:"sager",email:"hello@gmail.com"});
-    
-    // const msg = {msg:insert};
+var insert = (request,response)=>{
     response.status(200);
+        const msg = {
+            msg:"insert"
+        };
+        response.json(msg);
     
-    response.json(db); 
 };
+
+
 
 var update = (request,response)=>{
     response.status(200);
@@ -21,15 +20,11 @@ var update = (request,response)=>{
     
 };
 
-var show = async (request,response)=>{
- 
 
-    // var data = await users.findAll({});
-    
+var show = (request,response)=>{
     response.status(200);
-
         const msg = {
-            msg:data
+            msg:"success"
         };
         response.json(msg);
     
@@ -44,6 +39,7 @@ var fetchall = (request,response)=>{
     
 };
 
+
 var delate = (request,response)=>{
     response.status(200);
         const msg = {
@@ -52,6 +48,8 @@ var delate = (request,response)=>{
         response.json(msg);
     
 };
+ 
+
 
 module.exports = {
     insert,
