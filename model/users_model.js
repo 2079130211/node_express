@@ -1,5 +1,5 @@
 module.exports = (con,DataTypes)=>{
-    const Users =  con.define('users',{
+    const users =  con.define('users',{
         name:DataTypes.STRING,
         email:{
             type:DataTypes.STRING,
@@ -12,7 +12,7 @@ module.exports = (con,DataTypes)=>{
         }
     });
 
-    return Users;
+    return users;
       
 };
 

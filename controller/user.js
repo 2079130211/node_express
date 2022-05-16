@@ -1,24 +1,37 @@
-var db = require('./../database/index.js');
+const db = require('./../database');
+ 
 
 const users = db.users;
 
 var insert =    async (request,response)=>{
+    
+    let create =  await users.create({
+            name:"sager",
+            email:"hello@gmail.com"
+        });
 
-    // let insert =  await users.create({name:"sager",email:"hello@gmail.com"});
-    
-    // const msg = {msg:insert};
+
+   
+    let msg = {msg:create};
     response.status(200);
-    
-    response.json(db); 
+    response.json(msg); 
 };
 
-var update = (request,response)=>{
-    response.status(200);
-        const msg = {
-            msg:"update"
-        };
-        response.json(msg);
+var update = async (request,response)=>{
+
+
+    let up =  await users.update(
+        {  name:"ajayf", },
+        { where: { id: 1 } }
+      );
+      
     
+
+let msg = {msg:up};
+response.status(200);
+response.json(msg);
+
+
 };
 
 var show = async (request,response)=>{

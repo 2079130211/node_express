@@ -3,19 +3,13 @@ const {
     DataTypes
 } = require('sequelize');
 
-const con = new Sequelize('tmvtspuc_update', 'root', '12', {
+const con = new Sequelize('test', 'root', '12', {
     host: 'localhost',
     dialect: 'mysql',
-    pool: {
-        max: 5,
-        min: 0,
-        idle: 10000
-    }
+    pool: {max: 5,min: 0,idle: 10000}
 });
 
-con.authenticate().catch((error) => {
-    console.log(error + ' data base error');
-});
+con.authenticate().catch((error) => {console.log(error + ' data base error');});
  
     const db = {};
     db.Sequelize = Sequelize;
@@ -29,3 +23,5 @@ con.authenticate().catch((error) => {
     //     console.log('d');
     // });
  
+
+    module.exports = db;
