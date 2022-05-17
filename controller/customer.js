@@ -1,43 +1,60 @@
+const db = require('./../database');
+ 
 
 
-var insert = (request,response)=>{
+
+
+
+
+
+var index = (request,response)=>{
     response.status(200);
         const msg = {
-            msg:"insert"
+            msg:"index"
         };
         response.json(msg);
     
 };
 
-
-
-var update = (request,response)=>{
+var show = async (request,response)=>{
+    // var data = await users.findAll({});
+    
     response.status(200);
+
         const msg = {
-            msg:"update"
+            msg:data
         };
         response.json(msg);
     
 };
 
-
-var show = (request,response)=>{
+var store =    async (request,response)=>{
+    let create =  await users.create({
+            name:"sager",
+            email:"hello@gmail.com"
+        });
+    let msg = {msg:create};
     response.status(200);
-        const msg = {
-            msg:"success"
-        };
-        response.json(msg);
-    
+    response.json(msg); 
 };
 
-var fetchall = (request,response)=>{
-    response.status(200);
-        const msg = {
-            msg:"fetchall"
-        };
-        response.json(msg);
+var update = async (request,response)=>{
+
+
+    let up =  await users.update(
+        {  name:"ajayf", },
+        { where: { id: 1 } }
+      );
+      
     
+
+let msg = {msg:up};
+response.status(200);
+response.json(msg);
+
+
 };
+
 
 
 var delate = (request,response)=>{
@@ -48,13 +65,11 @@ var delate = (request,response)=>{
         response.json(msg);
     
 };
- 
-
 
 module.exports = {
-    insert,
+    store,
     update,
     show,
-    fetchall,
+    index,
     delate
 }

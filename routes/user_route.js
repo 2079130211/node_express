@@ -1,9 +1,10 @@
 
 module.exports = (app)=>{
-    var user = require("./../controller/user.js");
-    app.get("/insert",user.insert);
-    app.get("/update",user.update);
-    app.get("/show",user.show);
-    app.get("/fetchall",user.fetchall);
-    app.get("/delate",user.delate);
+    let controller = require("./../controller/user.js");
+    let prefix = "/user";
+    app.post(prefix,controller.store);
+    app.put(prefix,controller.update);
+    app.get(prefix+'/:type',controller.show);
+    app.get(prefix,controller.index);
+    app.delete(prefix,controller.delate);
 }; 

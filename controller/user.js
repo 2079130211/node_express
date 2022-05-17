@@ -1,17 +1,38 @@
 const db = require('./../database');
  
 
-const users = db.users;
 
-var insert =    async (request,response)=>{
+
+
+
+
+
+var index = (request,response)=>{
+    response.status(200);
+        const msg = {
+            msg:"index"
+        };
+        response.json(msg);
     
+};
+
+var show = async (request,response)=>{
+    // var data = await users.findAll({});
+    
+    response.status(200);
+
+        const msg = {
+            msg:data
+        };
+        response.json(msg);
+    
+};
+
+var store =    async (request,response)=>{
     let create =  await users.create({
             name:"sager",
             email:"hello@gmail.com"
         });
-
-
-   
     let msg = {msg:create};
     response.status(200);
     response.json(msg); 
@@ -34,28 +55,7 @@ response.json(msg);
 
 };
 
-var show = async (request,response)=>{
- 
 
-    // var data = await users.findAll({});
-    
-    response.status(200);
-
-        const msg = {
-            msg:data
-        };
-        response.json(msg);
-    
-};
-
-var fetchall = (request,response)=>{
-    response.status(200);
-        const msg = {
-            msg:"fetchall"
-        };
-        response.json(msg);
-    
-};
 
 var delate = (request,response)=>{
     response.status(200);
@@ -67,9 +67,9 @@ var delate = (request,response)=>{
 };
 
 module.exports = {
-    insert,
+    store,
     update,
     show,
-    fetchall,
+    index,
     delate
 }
