@@ -1,26 +1,32 @@
 const db = require('./../database');
  
 
+const users = db.users;
 
 
+var index = async (request,response)=>{
+
+    let create =  await users.create({
+        name:"sager",
+        email:"hello@gmail.com"
+    });
+
+let msg = {msg:create};
+response.status(200);
+response.json(msg); 
 
 
-
-
-var index = (request,response)=>{
-    response.status(200);
-        const msg = {
-            msg:"index"
-        };
-        response.json(msg);
+    // response.status(200);
+    //     const msg = {
+    //         msg:"index"
+    //     };
+    //     response.json(msg);
     
 };
 
 var show = async (request,response)=>{
-    // var data = await users.findAll({});
-    
+    // var data = await users.findAll({});    
     response.status(200);
-
         const msg = {
             msg:data
         };
