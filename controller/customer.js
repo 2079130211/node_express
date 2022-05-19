@@ -1,11 +1,4 @@
-const db = require('./../database');
- 
-
-
-
-
-
-
+const db = require('./../config');
 
 var index = (request,response)=>{
     response.status(200);

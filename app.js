@@ -1,5 +1,5 @@
 // modeal import here
-require('./database');
+require('./config');
 // controller
 require('./routes');
  
