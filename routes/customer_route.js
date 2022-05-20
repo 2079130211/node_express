@@ -1,10 +1,10 @@
 
-module.exports = (app)=>{
+module.exports = (router)=>{
     let controller = require("./../controller/customer.js");
     let prefix = "/customer";
-    app.post(prefix,controller.store);
-    app.put(prefix,controller.update);
-    app.get(prefix+'/:type',controller.show);
-    app.get(prefix,controller.index);
-    app.delete(prefix,controller.delate);
+    router.post(prefix,controller.store);
+    router.put(prefix,controller.update);
+    router.get(prefix+'/:type',controller.show);
+    router.get(prefix,controller.index);
+    router.delete(prefix,controller.delate);
 };

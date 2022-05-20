@@ -1,26 +1,24 @@
-const db = require('./../database');
- 
-
-const users = db.users;
-
-
+// const db = require('./../config');
+// const users = db.users;
 var index = async (request,response)=>{
 
-    let create =  await users.create({
-        name:"sager",
-        email:"hello@gmail.com"
-    });
+    console.log('ok');
 
-let msg = {msg:create};
-response.status(200);
-response.json(msg); 
+//     let create =  await users.create({
+//         name:"sager",
+//         email:"hello@gmail.com"
+//     });
+
+// let msg = {msg:create};
+// response.status(200);
+// response.json(msg); 
 
 
-    // response.status(200);
-    //     const msg = {
-    //         msg:"index"
-    //     };
-    //     response.json(msg);
+    response.status(200);
+        const msg = {
+            msg:"index"
+        };
+        response.json(msg);
     
 };
 
@@ -73,9 +71,9 @@ var delate = (request,response)=>{
 };
 
 module.exports = {
+    index,
     store,
     update,
     show,
-    index,
     delate
 }
