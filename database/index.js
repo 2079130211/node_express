@@ -31,7 +31,5 @@ db.con = con;
 //modeal import here
 db.users = require('../model/users_model')(con, DataTypes);
 
-// db.con.sync().then(() => {
-//     console.log('d');
-// });
+
 module.exports = db;
