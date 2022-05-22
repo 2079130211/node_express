@@ -1,10 +1,14 @@
-
-module.exports = (router)=>{
     let controller = require("./../controller/customer.js");
-    let prefix = "/customer";
-    router.post(prefix,controller.store);
-    router.put(prefix,controller.update);
-    router.get(prefix+'/:type',controller.show);
+    let prefix = "/api/customer";
+    const router = require('express').Router();
     router.get(prefix,controller.index);
-    router.delete(prefix,controller.delate);
-};
+        router.post(prefix,controller.store);
+        router.get(prefix+'/:type',controller.show);
+        router.put(prefix+'/:type',controller.update);
+        router.delete(prefix+'/:type',controller.delate);
+    module.exports = router;
+    
+     
+
+
+        

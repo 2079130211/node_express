@@ -10,7 +10,9 @@ var index = (request,response)=>{
 };
 
 var show = async (request,response)=>{
-    // var data = await users.findAll({});
+    var data = "ok"
+    
+    // await users.findAll({});
     
     response.status(200);
 
