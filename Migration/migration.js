@@ -5,7 +5,6 @@ var index = (request,response)=>{
         }).catch((e)=>{
             console.log(e);
         });
-
 }
 
 module.exports = {

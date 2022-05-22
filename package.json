@@ -8,7 +8,7 @@
     "start": "node src/app.js",
     "dev": "nodemon src/app.js"
   },
-  "author": "",
+  "author": "Pawan sahu",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.2",

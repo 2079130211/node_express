@@ -29,7 +29,11 @@ const db = {};
 db.Sequelize = Sequelize;
 db.con = con;
 //modeal import here
-db.users = require('../model/users_model')(con, DataTypes);
+db.users = require('../model/schema/user_schema')(con, DataTypes);
+db.customer = require('../model/schema/customer_schema')(con, DataTypes);
+
+
+// db.users.belongsTo(db.customer);
 
 
 module.exports = db;

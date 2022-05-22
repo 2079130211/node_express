@@ -1,13 +1,24 @@
 const express = require('express');
 const app = express();
-const cors = require('cors');
 
-app.use(express.json());
+//middleware
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
+//Port
+const Port = process.env.Port || 8080;
+
+
+//cors
+const cors = require('cors'); 
+const corOption = { origin : 'http://localhost:'+Port }
+
+
+//routes
+require('./../routes')(app);
+
+//migration
 app.get("/migration",require('./../Migration/migration').index);
 
-const PORT = 8080;
-const corOption = { origin : 'http://localhost:'+PORT }
-require('./../routes')(app);
-app.listen(PORT);
+//Port
+app.listen(Port);

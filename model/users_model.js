@@ -1,18 +1,14 @@
-module.exports = (con,DataTypes)=>{
-    const users =  con.define('users',{
-        name:DataTypes.STRING,
-        email:{
-            type:DataTypes.STRING,
-            defaultValue:'test@gmail.com',
-        },
-        status:{
-            type:DataTypes.TINYINT(1),
-            defaultValue:1,
+// const db = require('./../database');
+// const users = db.users;
 
-        }
-    });
+// users.
 
-    return users;
-      
-};
+
+
+
+
+// module.exports = {
+//     users
+
+// }
 
