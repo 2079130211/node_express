@@ -1,5 +1,5 @@
-const db = require('./../database');
-const users = db.users;
+const users = require('./../model/users_model');
+
 var index = async (request,response)=>{
     var data = await users.findAll({}); 
         response.status(200).json({msg:data}); 
@@ -26,21 +26,30 @@ var store =    async (request,response)=>{
 };
 
 var update = async (request,response)=>{
+    
     let up =  await users.update(
         {  name:"ajayf", },
         { where: { id: 1 } }
       );
 
-let msg = {msg:up};
-response.status(200);
-response.json(msg);
+response.status(200).json({msg:up}); 
+
+};
+
+var delate = async (request,response)=>{
+    
+    let del =  await users.destroy({
+        where: { id: 1 }
+    }
+      );
+
+response.status(200).json({msg:del}); 
+
 };
 
 
 
-var delate = (request,response)=>{
-    response.status(200).json({msg:"delete"}); 
-};
+ 
 
 module.exports = {
     index,

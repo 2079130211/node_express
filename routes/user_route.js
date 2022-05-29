@@ -1,13 +1,30 @@
- 
 let controller = require("./../controller/user.js");
-let prefix = "/api/user";
-
 
 const router = require('express').Router();
+    
+router.get('/',(request,response)=>{
+controller.index(request,response);
+});
+      
 
-router.get(prefix,controller.index);
-    router.post(prefix,controller.store);
-    router.get(prefix+'/:type',controller.show);
-    router.put(prefix+'/:type',controller.update);
-    router.delete(prefix+'/:type',controller.delate);
+router.post('/',(request,response)=>{
+controller.store(request,response);
+});
+
+
+router.get('/:type',(request,response)=>{
+controller.show(request,response);
+});
+
+
+router.put('/:type',(request,response)=>{
+controller.update(request,response);
+});
+
+
+router.delete('/:type',(request,response)=>{
+controller.delate(request,response);
+});
+
+
 module.exports = router;

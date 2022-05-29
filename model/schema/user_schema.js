@@ -8,10 +8,8 @@ module.exports = (con,DataTypes)=>{
         status:{
             type:DataTypes.TINYINT(1),
             defaultValue:1,
-
         }
     });
-
     return users;
 };
 

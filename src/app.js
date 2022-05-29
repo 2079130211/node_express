@@ -1,24 +1,15 @@
 const express = require('express');
 const app = express();
 
-//middleware
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+/*middleware ====> */ 
+const cors = require('./../middleware/cors_middleware.js');
+const bodyparser = require('./../middleware/bodyparser_middleware.js');
+const multer = require('./../middleware/multer.js');
+app.use(cors);
+app.use(bodyparser.urlencoded);
+ 
+/*routes ====>*/  require('./../routes')(app);
 
-//Port
-const Port = process.env.Port || 8080;
+/*migration ====>*/  app.get("/migration",require('./../Migration/migration').index);
 
-
-//cors
-const cors = require('cors'); 
-const corOption = { origin : 'http://localhost:'+Port }
-
-
-//routes
-require('./../routes')(app);
-
-//migration
-app.get("/migration",require('./../Migration/migration').index);
-
-//Port
-app.listen(Port);
+/*Port ====>*/ const Port = 8080; app.listen(Port);

@@ -1,14 +1,6 @@
-// const db = require('./../database');
-// const users = db.users;
+const db = require('./../database');
 
-// users.
+const users = db.users;
 
-
-
-
-
-// module.exports = {
-//     users
-
-// }
+module.exports = users;
 
