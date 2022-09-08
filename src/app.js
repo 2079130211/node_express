@@ -1,15 +1,16 @@
 const express = require('express');
 const app = express();
 
-/*middleware ====> */ 
-const cors = require('./../middleware/cors_middleware.js');
-const bodyparser = require('./../middleware/bodyparser_middleware.js');
-const multer = require('./../middleware/multer.js');
+/*middleware ====> */
+const cors = require('./../app/middleware/cors_middleware.js');
+const bodyparser = require('./../app/middleware/bodyparser_middleware.js');
+const multer = require('./../app/middleware/multer.js');
 app.use(cors);
 app.use(bodyparser.urlencoded);
- 
-/*routes ====>*/  require('./../routes')(app);
+/*routes ====>*/
+require('./../routes')(app);
+/*migration ====>*/
 
-/*migration ====>*/  app.get("/migration",require('./../Migration/migration').index);
-
-/*Port ====>*/ const Port = 8080; app.listen(Port);
+/*Port ====>*/
+const Port = 8080;
+app.listen(Port);

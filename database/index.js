@@ -1,4 +1,4 @@
-const database = require('./../config'); 
+const database = require('./../config');
 
 const dbname = database.dbname;
 const dbuser = database.dbuser;
@@ -29,11 +29,7 @@ const db = {};
 db.Sequelize = Sequelize;
 db.con = con;
 //modeal import here
-db.users = require('../model/schema/user_schema')(con, DataTypes);
-db.customer = require('../model/schema/customer_schema')(con, DataTypes);
-
-
-// db.users.belongsTo(db.customer);
-
-
+db.users = require('./../app/schema/user_schema')(con, DataTypes);
+db.customer = require('./../app/schema/customer_schema')(con, DataTypes);
+// db.comment = require('./../app/schema/comment_schema')(con, DataTypes);
 module.exports = db;
